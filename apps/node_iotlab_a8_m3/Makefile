@@ -39,6 +39,11 @@ USEMODULE += coap_iotlab_a8_m3
 # Change this to 0 show compiler invocation lines by default:
 QUIET ?= 1
 
+ifneq ( , $(USE_COAPS))
+# FIXME: Switch to the new module (secure_sock) once is added to the master
+  USEMODULE += gnrc_dtls
+endif
+
 # Application specific definitions and includes
 APPLICATION_NAME ?= "IoT-Lab\ A8\ Node"
 NODE_LAT ?= 48.714784
